@@ -15,9 +15,29 @@ import frc.demacia.utils.Data;
 import frc.demacia.utils.Log.LogManager;
 
 public class RailSubsystem extends SubsystemBase {
+  
+  private final String name_Of_railMotor = "Rail";
+  private final int id  = 9;
   private TalonMotor railMotor;
   private double EXTEND_SPEED;
   private double RETRACT_SPEED;
+
+  public RailSubsystem (){
+    TalonConfig railConfig = new TalonConfig(id, Canbus.Rio, name_Of_railMotor)
+      .withCurrent(40)
+      .withPID(0.5,0,0,0.12,0.3,0.3,0)
+      .withBrake(false)
+      .withMeterMotor(5.0, 0.08); // gear ratio and wheel diameter - adjust for your mechanism
+    
+      LogManager.log("Roller Subsystem initialized");
+      
+
+  }
+  public enum RailState {
+    IDLE,
+    EXTENDING,
+    RETRACTING
+  }
 
   public void setPowerToEXTEND(){
     railMotor.setDuty(EXTEND_SPEED);
@@ -35,5 +55,5 @@ public class RailSubsystem extends SubsystemBase {
    public double volte(){
     return railMotor.getCurrentVoltage();
    }
-
+   
   }

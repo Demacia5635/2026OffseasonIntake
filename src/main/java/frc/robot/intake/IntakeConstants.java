@@ -14,17 +14,20 @@ import frc.demacia.utils.Motors.TalonMotor;
 
 public class IntakeConstants {
     public static class OperatorConstants {
+        
+        
     private Data<Voltage> voltageSignal;
-    private final String name = "Rail";
+    
     private static final double RETRACTED_POSITION = 0.0;
     private static final double EXTENDED_POSITION = 0.03; // Adjust this value
     private static final double POSITION_TOLERANCE = 0.02;
-    
+   
 
 //   private final String name = "Rail";
     // Rail speeds
     private static final double EXTEND_SPEED = 0.5;
     private static final double RETRACT_SPEED = -0.5;
-
     }
+            
+    
 }
