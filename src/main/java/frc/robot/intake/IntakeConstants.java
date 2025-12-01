@@ -13,20 +13,22 @@ import frc.demacia.utils.Motors.TalonMotor;
 
 
 public class IntakeConstants {
+    
     public static class OperatorConstants {
         
         
-    private Data<Voltage> voltageSignal;
+    public Data<Voltage> voltageSignal;
     
-    private static final double RETRACTED_POSITION = 0.0;
-    private static final double EXTENDED_POSITION = 0.03; // Adjust this value
-    private static final double POSITION_TOLERANCE = 0.02;
-   
-
+    public static final double RETRACTED_POSITION = 0.0;
+    public static final double EXTENDED_POSITION = 0.03; // Adjust this value
+    public static final double POSITION_TOLERANCE = 0.02;
+    public static final double offsetCurrent = 39;
+    public static final double rotation = 5;
+    
 //   private final String name = "Rail";
     // Rail speeds
-    private static final double EXTEND_SPEED = 0.5;
-    private static final double RETRACT_SPEED = -0.5;
+    public static final double EXTEND_SPEED = 0.5;
+    public static final double RETRACT_SPEED = -0.5;
     }
             
     

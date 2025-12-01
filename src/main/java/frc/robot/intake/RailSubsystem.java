@@ -6,6 +6,8 @@ package frc.robot.intake;
 
 import java.util.Set;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+
 import edu.wpi.first.units.measure.Voltage;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.demacia.utils.Motors.TalonConfig;
@@ -15,12 +17,12 @@ import frc.demacia.utils.Data;
 import frc.demacia.utils.Log.LogManager;
 
 public class RailSubsystem extends SubsystemBase {
-  
+  public final int id  = 9;
   private final String name_Of_railMotor = "Rail";
-  private final int id  = 9;
   private TalonMotor railMotor;
   private double EXTEND_SPEED;
   private double RETRACT_SPEED;
+ 
 
   public RailSubsystem (){
     TalonConfig railConfig = new TalonConfig(id, Canbus.Rio, name_Of_railMotor)
@@ -33,24 +35,26 @@ public class RailSubsystem extends SubsystemBase {
       
 
   }
-  public enum RailState {
-    IDLE,
-    EXTENDING,
-    RETRACTING
+   public void setNeutralMode(boolean isBrake) {
+    railMotor.setNeutralMode(isBrake);
+  }
+  public double getrotation(){
+    return railMotor.getCurrentPosition();
+    
+    
   }
 
-  public void setPowerToEXTEND(){
-    railMotor.setDuty(EXTEND_SPEED);
+  public void setPower(double power){
+    railMotor.setDuty(power);
   }
-
-  public void setPowertoRETRACT(){
-    railMotor.setDuty(RETRACT_SPEED);
-  } 
+  public double getCurrent() {
+    return railMotor.getCurrentCurrent();
+  }
+  
     // Check motor electronics for faults
    public void checkElectronics() {
     railMotor.checkElectronics();
    }
-
    
    public double volte(){
     return railMotor.getCurrentVoltage();
