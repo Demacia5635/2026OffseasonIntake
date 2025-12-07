@@ -4,7 +4,12 @@
 
 package frc.robot;
 
+import frc.demacia.utils.Controller.CommandController;
+import frc.demacia.utils.Controller.CommandController.ControllerType;
 import frc.demacia.utils.Log.LogManager;
+import frc.robot.intakeCommend.TakeOutRails;
+import frc.robot.intakeCommend.calibration;
+import frc.robot.intakeSubsystem.RailSubsystem;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -25,12 +30,17 @@ public class RobotContainer {
   public static double CYCLE_TIME = 0.02;
   
   // The robot's subsystems and commands are defined here...
-
+  private RailSubsystem rail;
+  private calibration Calibration;
+  private TakeOutRails takeOutRails;
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-
+  public static CommandController controller = new CommandController(1, ControllerType.kPS5);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+    rail = new RailSubsystem();
+    Calibration= new calibration(rail);
+    takeOutRails = new TakeOutRails(rail);
 
     new LogManager();
 
@@ -61,7 +71,8 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    
+    controller.leftButton().onTrue(Calibration);
+    controller.downButton().onTrue(takeOutRails);
   }
 
   /**

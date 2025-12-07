@@ -2,18 +2,19 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.intake;
+package frc.robot.intakeCommend;
 
-import frc.robot.intake.IntakeConstants.OperatorConstants;
 import edu.wpi.first.wpilibj2.command.Command;
-
+import frc.robot.intakeSubsystem.RailSubsystem;
+import frc.robot.intakeSubsystem.IntakeConstants.OperatorConstants;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class InsertRails extends Command {
+public class TakeOutRails extends Command {
 private RailSubsystem rail;
+private double startingRotaion;
 
-  /** Creates a new InsertRails. */
-  public InsertRail (RailSubsystem rail) {
+  /** Creates a new TakeOutRails. */
+  public TakeOutRails (RailSubsystem rail) {
     this.rail= rail;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(rail);
@@ -22,12 +23,13 @@ private RailSubsystem rail;
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    startingRotaion = rail.getrotation();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    rail.setPower(OperatorConstants.RETRACT_SPEED );
+    rail.setPower(OperatorConstants.EXTEND_SPEED );
 
   }
 
@@ -35,12 +37,11 @@ private RailSubsystem rail;
   @Override
   public void end(boolean interrupted) {
     rail.setPower(0);
-    rail.setNeutralMode(false);
   }
- 
+
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return (getCurrent()>38);
+    return rail.getrotation() > OperatorConstants.ROTATION+startingRotaion;
   }
 }
