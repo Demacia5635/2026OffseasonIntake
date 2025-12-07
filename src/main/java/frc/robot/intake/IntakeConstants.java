@@ -6,10 +6,8 @@ package frc.robot.intake;
 
 import edu.wpi.first.units.measure.Voltage;
 import frc.demacia.utils.Data;
-import frc.demacia.utils.Log.LogManager;
 import frc.demacia.utils.Motors.BaseMotorConfig.Canbus;
 import frc.demacia.utils.Motors.TalonConfig;
-import frc.demacia.utils.Motors.TalonMotor;
 
 
 public class IntakeConstants {

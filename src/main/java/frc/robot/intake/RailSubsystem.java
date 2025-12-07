@@ -4,16 +4,9 @@
 
 package frc.robot.intake;
 
-import java.util.Set;
-
-import com.ctre.phoenix.motorcontrol.NeutralMode;
-
-import edu.wpi.first.units.measure.Voltage;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.demacia.utils.Motors.TalonConfig;
 import frc.demacia.utils.Motors.TalonMotor;
-import frc.demacia.utils.Motors.BaseMotorConfig.Canbus;
-import frc.demacia.utils.Data;
 import frc.demacia.utils.Log.LogManager;
 
 public class RailSubsystem extends SubsystemBase {
