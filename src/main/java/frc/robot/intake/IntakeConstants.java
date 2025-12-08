@@ -7,9 +7,8 @@ public class IntakeConstants {
       
     // Roller configuration constants
     private static final int ROLLER_MOTOR_ID = 9;
-    private static final double INTAKE_VELOCITY = 3.0; // m/s - adjust based on testing
-    private static final double OUTTAKE_VELOCITY = -3.0; // m/s
-    private static final double SLOW_INTAKE_VELOCITY = 1.5; // m/s - for controlled intake
+    public static final double INTAKE_POWER = 0.7;
+
 
     TalonConfig rollerConfig = new TalonConfig(ROLLER_MOTOR_ID, Canbus.Rio, "Roller Motor")
         .withMeterMotor(5.0, 0.08) // gear ratio and wheel diameter - adjust for your mechanism
