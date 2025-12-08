@@ -8,10 +8,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.intakeSubsystem.RailSubsystem;
 import frc.robot.intakeSubsystem.IntakeConstants.OperatorConstants;
 
-/* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class TakeOutRails extends Command {
-private RailSubsystem rail;
-private double startingRotaion;
+  private RailSubsystem rail;
+  private double startingRotaion;
 
   /** Creates a new TakeOutRails. */
   public TakeOutRails (RailSubsystem rail) {

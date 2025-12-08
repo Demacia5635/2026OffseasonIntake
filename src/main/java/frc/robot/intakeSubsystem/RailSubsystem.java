@@ -12,7 +12,7 @@ import frc.demacia.utils.Log.LogManager;
 public class RailSubsystem extends SubsystemBase {
   private TalonMotor railMotor;
   public RailSubsystem (){
-    railMotor = new TalonMotor(IntakeConstants.OperatorConstants.railConfig);
+    railMotor = new TalonMotor(IntakeConstants.OperatorConstants.RAIL_CONFIG);
     LogManager.log("rail Subsystem initialized");
   }
 
@@ -29,7 +29,7 @@ public class RailSubsystem extends SubsystemBase {
     return railMotor.getCurrentCurrent();
   }
   
-    // Check motor electronics for faults
+    /**Check motor electronics for faults */
    public void checkElectronics() {
     railMotor.checkElectronics();
    }

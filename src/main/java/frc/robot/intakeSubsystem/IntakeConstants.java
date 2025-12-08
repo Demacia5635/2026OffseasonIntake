@@ -19,12 +19,12 @@ public class IntakeConstants {
 
     public static final double EXTEND_SPEED = 0.3;
     public static final double RETRACT_SPEED = -0.3;
-    
-        public static final int id  = 9;
-        private static final String NAME_OF_RAILMOTOR = "Rail";
+    public static final double GEAR_RATIO = -1;
+    public static final int id  = 9;
+    private static final String NAME_OF_RAILMOTOR = "Rail";
 
-        public static final TalonConfig railConfig = new TalonConfig(id, Canbus.Rio, NAME_OF_RAILMOTOR)
-         .withMeterMotor(5.0, 0.08); // gear ratio and wheel diameter - adjust for your mechanism
+        public static final TalonConfig RAIL_CONFIG = new TalonConfig(id, Canbus.Rio, NAME_OF_RAILMOTOR)
+         .withMeterMotor(-1, -1); // gear ratio and wheel diameter - adjust for your mechanism
     
       
         
