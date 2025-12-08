@@ -35,7 +35,7 @@ public class RobotContainer {
   private TakeOutRails takeOutRails;
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  public static CommandController controller = new CommandController(1, ControllerType.kPS5);
+  public static CommandController controller = new CommandController(0, ControllerType.kPS5);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     rail = new RailSubsystem();
