@@ -10,6 +10,7 @@ import frc.demacia.utils.Log.LogManager;
 
 
 public class RailSubsystem extends SubsystemBase {
+  private boolean isOUT = false;
   private TalonMotor railMotor;
   public RailSubsystem (){
     railMotor = new TalonMotor(IntakeConstants.OperatorConstants.railConfig);
@@ -20,7 +21,9 @@ public class RailSubsystem extends SubsystemBase {
   public double getrotation(){
     return railMotor.getCurrentPosition();
   }
-
+  public boolean isExtaneded(){
+    return isOUT;
+  }
   public void setPower(double power){
     railMotor.setDuty(power);
   }
