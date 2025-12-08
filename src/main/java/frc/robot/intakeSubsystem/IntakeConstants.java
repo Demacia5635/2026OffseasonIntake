@@ -4,8 +4,7 @@
 
 package frc.robot.intakeSubsystem;
 
-import edu.wpi.first.units.measure.Voltage;
-import frc.demacia.utils.Data;
+
 import frc.demacia.utils.Motors.BaseMotorConfig.Canbus;
 import frc.demacia.utils.Motors.TalonConfig;
 
@@ -13,7 +12,6 @@ import frc.demacia.utils.Motors.TalonConfig;
 public class IntakeConstants {
     
     public static class OperatorConstants {
-        public Data<Voltage> voltageSignal;
     public static final double MAXSPEED = 40;
     public static final double ROTATION = 5;
     //TODO:need to chack what is the currnt to the stoping point
