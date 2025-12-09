@@ -35,6 +35,5 @@ public class RailSubsystem extends SubsystemBase {
    }
 
    @Override
-   public void periodic() {
-    } 
+   public void periodic() {} 
   }

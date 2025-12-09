@@ -15,7 +15,7 @@ private double startingRotaion;
 
   /** Creates a new TakeOutRails. */
   public TakeOutRails (RailSubsystem rail) {
-    this.rail= rail;
+    this.rail = rail;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(rail);
   }

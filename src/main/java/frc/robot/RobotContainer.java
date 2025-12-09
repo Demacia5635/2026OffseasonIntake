@@ -11,6 +11,7 @@ import frc.robot.intakeCommend.TakeOutRails;
 import frc.robot.intakeCommend.calibration;
 import frc.robot.intakeSubsystem.RailSubsystem;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -34,18 +35,18 @@ public class RobotContainer {
   private calibration Calibration;
   private TakeOutRails takeOutRails;
 
+
+
   // Replace with CommandPS4Controller or CommandJoystick if needed
   public static CommandController controller = new CommandController(1, ControllerType.kPS5);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+    new LogManager();
     rail = new RailSubsystem();
     Calibration= new calibration(rail);
     takeOutRails = new TakeOutRails(rail);
 
-    new LogManager();
-
-    // Configure the trigger bindings
-    // testMotor.setDefaultCommand(new TestMotorCommand(testMotor,5););
+    // Configure the trigger bindin,(new TestMotorCommand(testMotor,5););
     configureBindings();
   }
 
