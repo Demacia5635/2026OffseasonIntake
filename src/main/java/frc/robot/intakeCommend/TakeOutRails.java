@@ -6,8 +6,7 @@ package frc.robot.intakeCommend;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.intakeSubsystem.RailSubsystem;
-import frc.robot.intakeSubsystem.IntakeConstants.OperatorConstants;
-
+import frc.robot.intakeSubsystem.IntakeConstants;
 public class TakeOutRails extends Command {
   private RailSubsystem rail;
   private double startingRotaion;
@@ -22,13 +21,13 @@ public class TakeOutRails extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    startingRotaion = rail.getRotation();
+    startingRotaion = rail.getPosition();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    rail.setPower(OperatorConstants.EXTEND_SPEED );
+    rail.setPower(IntakeConstants.EXTEND_SPEED );
 
   }
 
@@ -41,6 +40,6 @@ public class TakeOutRails extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return rail.getRotation() > OperatorConstants.ROTATION+startingRotaion;
+    return rail.getPosition() > IntakeConstants.ROTATION+startingRotaion;
   }
 }

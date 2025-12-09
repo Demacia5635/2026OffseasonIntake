@@ -3,15 +3,15 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.intakeCommend;
-import frc.robot.intakeSubsystem.IntakeConstants.OperatorConstants;
+import frc.robot.intakeSubsystem.IntakeConstants;
 import frc.robot.intakeSubsystem.RailSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
-public class calibration extends Command {
+public class ExtanedRails extends Command {
   private RailSubsystem rail;
 
   /** Creates a new calibration. */
-  public calibration(RailSubsystem rail) {
+  public ExtanedRails(RailSubsystem rail) {
     this.rail= rail;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(rail);
@@ -24,7 +24,7 @@ public class calibration extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    rail.setPower(OperatorConstants.RETRACT_SPEED);
+    rail.setPower(IntakeConstants.RETRACT_SPEED);
   }
 
   // Called once the command ends or is interrupted.
@@ -36,6 +36,6 @@ public class calibration extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return rail.getCurrent() > OperatorConstants.STOPCURRENT;
+    return rail.getCurrent() > IntakeConstants.STOPCURRENT;
   }
 }

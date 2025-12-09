@@ -8,10 +8,9 @@ import frc.demacia.utils.Controller.CommandController;
 import frc.demacia.utils.Controller.CommandController.ControllerType;
 import frc.demacia.utils.Log.LogManager;
 import frc.robot.intakeCommend.TakeOutRails;
-import frc.robot.intakeCommend.calibration;
+import frc.robot.intakeCommend.ExtanedRails;
 import frc.robot.intakeSubsystem.RailSubsystem;
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -32,7 +31,7 @@ public class RobotContainer {
   
   // The robot's subsystems and commands are defined here...
   private RailSubsystem rail;
-  private calibration Calibration;
+  private ExtanedRails ExtanedRails;
   private TakeOutRails takeOutRails;
 
 
@@ -43,7 +42,7 @@ public class RobotContainer {
   public RobotContainer() {
     new LogManager();
     rail = new RailSubsystem();
-    Calibration= new calibration(rail);
+    ExtanedRails= new ExtanedRails(rail);
     takeOutRails = new TakeOutRails(rail);
 
     // Configure the trigger bindin,(new TestMotorCommand(testMotor,5););
@@ -72,7 +71,7 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    controller.leftButton().onTrue(Calibration);
+    controller.leftButton().onTrue(ExtanedRails);
     controller.downButton().onTrue(takeOutRails);
   }
 

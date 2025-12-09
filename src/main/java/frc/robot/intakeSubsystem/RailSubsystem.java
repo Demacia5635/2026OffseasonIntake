@@ -12,15 +12,15 @@ import frc.demacia.utils.Log.LogManager;
 public class RailSubsystem extends SubsystemBase {
   private TalonMotor railMotor;
   public RailSubsystem (){
-    railMotor = new TalonMotor(IntakeConstants.OperatorConstants.RAIL_CONFIG);
+    railMotor = new TalonMotor(IntakeConstants.RAIL_CONFIG);
     LogManager.log("rail Subsystem initialized");
   }
 
   
-  public double getRotation(){
+  public double getPosition(){
     return railMotor.getCurrentPosition();
   }
-
+  
   public void setPower(double power){
     railMotor.setDuty(power);
   }

@@ -11,7 +11,6 @@ import frc.demacia.utils.Motors.TalonConfig;
 
 public class IntakeConstants {
     
-    public static class OperatorConstants {
     public static final double MAXSPEED = 40;
     public static final double ROTATION = 5;
     //TODO:need to chack what is the currnt to the stoping point
@@ -32,8 +31,7 @@ public class IntakeConstants {
     
 //   private final String name = "Rail";
     // Rail speeds
-    
-    }
+
             
     
 }
