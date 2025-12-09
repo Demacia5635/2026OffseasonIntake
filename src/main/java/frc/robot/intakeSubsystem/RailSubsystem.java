@@ -17,7 +17,7 @@ public class RailSubsystem extends SubsystemBase {
   }
 
   
-  public double getrotation(){
+  public double getRotation(){
     return railMotor.getCurrentPosition();
   }
 
