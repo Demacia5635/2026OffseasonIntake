@@ -2,34 +2,42 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.intake;
-
+package frc.robot.intakeCommend;
+import frc.robot.intakeSubsystem.IntakeConstants;
+import frc.robot.intakeSubsystem.RailSubsystem;
+import frc.robot.intakeSubsystem.RollerSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class IntakeCommand extends Command {
-  RollerSubsystem rollers;
-  RailSubsystem rail;
+public class RollerCommand extends Command {
+  private RollerSubsystem rollers;
+  private RailSubsystem rail;
 
-
-  public IntakeCommand(RollerSubsystem rollers, RailSubsystem rails) {
-    this.rollers = rollers;
-    this.rail = rails;
+  /** Creates a new calibration. */
+  public RollerCommand(RollerSubsystem rollers, RailSubsystem rail) {
+    this.rollers= rollers;
+    this.rail = rail;
+    // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(rollers);
+    addRequirements(rail);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    rollers.setPower(rail.getIsMovingOut() ? IntakeConstants.INTAKE_POWER : 0);
+  }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    rollers.setPower(0);
+  }
 
   // Returns true when the command should end.
   @Override

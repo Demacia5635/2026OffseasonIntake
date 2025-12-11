@@ -4,11 +4,15 @@
 
 package frc.robot;
 
+import frc.demacia.utils.Controller.CommandController;
+import frc.demacia.utils.Controller.CommandController.ControllerType;
 import frc.demacia.utils.Log.LogManager;
-import frc.robot.Constants.OperatorConstants;
+import frc.robot.intakeCommend.RailCommand;
+import frc.robot.intakeCommend.RollerCommand;
+import frc.robot.intakeSubsystem.RailSubsystem;
+import frc.robot.intakeSubsystem.RollerSubsystem;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
@@ -25,14 +29,21 @@ public class RobotContainer {
 
   public static int N_CYCLE = 0;
   public static double CYCLE_TIME = 0.02;
-
+  
   // The robot's subsystems and commands are defined here...
-
+  private RollerSubsystem rollers;
+  private RailSubsystem rail;
+  private RollerCommand rollerCommand;
+  private RailCommand takeOutRails;
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-
+  public static CommandController controller = new CommandController(0, ControllerType.kPS5);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+    rollers = new RollerSubsystem();
+    rail = new RailSubsystem();
+    rollerCommand = new RollerCommand(rollers, rail);
+    takeOutRails = new RailCommand(rail);
 
     new LogManager();
 
@@ -63,7 +74,7 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    
+    controller.downButton().onTrue(takeOutRails).onTrue(rollerCommand);
   }
 
   /**
