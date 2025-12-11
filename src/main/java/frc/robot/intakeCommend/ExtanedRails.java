@@ -25,6 +25,7 @@ public class ExtanedRails extends Command {
   @Override
   public void execute() {
     rail.setPower(IntakeConstants.RETRACT_SPEED);
+    
   }
 
   // Called once the command ends or is interrupted.
