@@ -7,7 +7,6 @@ package frc.robot.intakeSubsystem;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.demacia.utils.Motors.TalonMotor;
 import frc.demacia.utils.Log.LogManager;
-import frc.robot.intakeSubsystem.IntakeConstants;
 
 
 public class RailSubsystem extends SubsystemBase {

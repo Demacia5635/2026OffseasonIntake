@@ -5,10 +5,7 @@
 package frc.robot.intakeSubsystem;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.demacia.utils.Motors.TalonConfig;
 import frc.demacia.utils.Motors.TalonMotor;
-import frc.demacia.utils.Motors.BaseMotorConfig.Canbus;
-import frc.robot.intakeSubsystem.IntakeConstants; 
 import frc.demacia.utils.Log.LogManager;
 
 public class RollerSubsystem extends SubsystemBase {
