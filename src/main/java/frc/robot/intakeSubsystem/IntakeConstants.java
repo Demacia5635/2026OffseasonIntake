@@ -14,9 +14,9 @@ public class IntakeConstants {
     public static final double MAXSPEED = 40;
     public static final double ROTATION = 5;
     //TODO:need to chack what is the currnt to the stoping point
-    public static final double STOPCURRENT = 30;
+    public static final double STOPCURRENT = 20;
 
-    public static final double EXTEND_SPEED = 0.3;
+    public static final double EXTEND_SPEED = 0.5;
     public static final double RETRACT_SPEED = -0.3;
 
     public static final int ROLLER_MOTOR_ID = 10;

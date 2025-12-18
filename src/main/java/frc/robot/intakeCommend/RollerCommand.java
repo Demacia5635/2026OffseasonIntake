@@ -17,9 +17,7 @@ public class RollerCommand extends Command {
   public RollerCommand(RollerSubsystem rollers, RailSubsystem rail) {
     this.rollers= rollers;
     this.rail = rail;
-    // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(rollers);
-    addRequirements(rail);
   }
 
   // Called when the command is initially scheduled.
@@ -42,6 +40,6 @@ public class RollerCommand extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return !rail.getIsMovingOut();
   }
 }

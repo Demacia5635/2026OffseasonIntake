@@ -7,6 +7,7 @@ package frc.robot.intakeCommend;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.intakeSubsystem.RailSubsystem;
+import frc.robot.RobotContainer;
 import frc.robot.intakeSubsystem.IntakeConstants;
 
 public class RailCommand extends Command {
@@ -28,7 +29,7 @@ private Timer timer;
   @Override
   public void initialize() {
     rail.setIsMovingOut(!rail.getIsMovingOut());
-
+    if(RobotContainer.rollerCommand != null) RobotContainer.rollerCommand.schedule();
     timer.reset();
     timer.start();
 

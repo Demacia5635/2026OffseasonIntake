@@ -33,8 +33,9 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private RollerSubsystem rollers;
   private RailSubsystem rail;
-  private RollerCommand rollerCommand;
+  public static RollerCommand rollerCommand;
   private RailCommand takeOutRails;
+  private Command intakeCommand;
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   public static CommandController controller = new CommandController(0, ControllerType.kPS5);
@@ -74,7 +75,7 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    controller.downButton().onTrue(takeOutRails).onTrue(rollerCommand);
+    controller.downButton().onTrue(takeOutRails);
   }
 
   /**
