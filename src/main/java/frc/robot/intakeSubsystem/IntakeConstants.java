@@ -21,6 +21,7 @@ public class IntakeConstants {
 
     public static final int ROLLER_MOTOR_ID = 10;
     public static final double INTAKE_POWER = 0.6;
+    public static final double RAIL_OUT_TIME_SECONDS = 2.0;
 
     public static final int id  = 9;
     private static final String NAME_OF_RAILMOTOR = "Rail";

@@ -4,17 +4,22 @@
 
 package frc.robot.intakeCommend;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.intakeSubsystem.RailSubsystem;
 import frc.robot.intakeSubsystem.IntakeConstants;
 
 public class RailCommand extends Command {
 private RailSubsystem rail;
+private Timer timer;
+
 
 
   /** Creates a new TakeOutRails. */
   public RailCommand (RailSubsystem rail) {
     this.rail= rail;
+    this.timer = new Timer();
+
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(rail);
   }
@@ -23,6 +28,10 @@ private RailSubsystem rail;
   @Override
   public void initialize() {
     rail.setIsMovingOut(!rail.getIsMovingOut());
+
+    timer.reset();
+    timer.start();
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -35,11 +44,19 @@ private RailSubsystem rail;
   @Override
   public void end(boolean interrupted) {
     rail.setPower(0);
+    timer.stop();
+
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return rail.getCurrent() > IntakeConstants.STOPCURRENT;
+    
+    if (rail.getIsMovingOut()) {
+      return timer.hasElapsed(IntakeConstants.RAIL_OUT_TIME_SECONDS);
+    }
+    else {
+      return rail.getCurrent() > IntakeConstants.STOPCURRENT;
+    }
   }
 }
